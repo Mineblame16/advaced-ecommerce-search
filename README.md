@@ -38,35 +38,45 @@ Ensure you have the following installed:
    git clone https://github.com/Mineblame16/advanced-ecommerce-search.git
    cd advanced-ecommerce-search
    ```
+
 2. **Install the required Python packages**:
 
-    ```
+    ```bash
     python -m pip install -r requirements.txt
     ```
-3. **Setup Your Database**:
 
-    A complete SQL script to setup the db is on `examples/db.sql`
+3. **Download WordNet for NLTK**:
 
-4. **Setup an API** :
-
-    Recommendation for Node.js: For a straightforward and efficient setup, we highly recommend using Node.js as your backend for this tool. Node.js offers a simple and flexible environment for building APIs, with a rich ecosystem of packages and robust performance for handling high traffic. Its asynchronous nature makes it well-suited for managing multiple search requests concurrently, ensuring smooth operation of the Advanced E-commerce Search tool.
-
-    1. Setup Node.js API:
-
-    Navigate to the `examples/nodejs/` directory. It contains a complete example of how to set up the API using Node.js.
+    Run the following command to download WordNet data, which is necessary for synonym expansion:
 
     ```bash
-    cd examples/nodejs
+    python download.py
     ```
 
-    2. Setup PHP API:
+4. **Setup Your Database**:
 
-   Navigate to the `examples/php/` directory. It contains a complete example of how to set up the API using Node.js.
+    A complete SQL script to setup the database is available in `examples/db.sql`.
 
-   ```bash
-   cd examples/nodejs
-   ```
-    
+5. **Setup an API**:
+
+    - **Recommendation for Node.js:** For a straightforward and efficient setup, we highly recommend using Node.js as your backend for this tool. Node.js offers a simple and flexible environment for building APIs, with a rich ecosystem of packages and robust performance for handling high traffic. Its asynchronous nature makes it well-suited for managing multiple search requests concurrently, ensuring smooth operation of the Advanced E-commerce Search tool.
+
+    - **Setup Node.js API:**
+
+      Navigate to the `examples/nodejs/` directory. It contains a complete example of how to set up the API using Node.js.
+
+      ```bash
+      cd examples/nodejs
+      ```
+
+    - **Setup PHP API:**
+
+      Navigate to the `examples/php/` directory. It contains a complete example of how to set up the API using PHP.
+
+      ```bash
+      cd examples/php
+      ```
+
 ## That's it 🎉
 
 Now you can run the search app without any errors. Enjoy your enhanced search functionality and have a great time exploring the features!
