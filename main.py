@@ -75,7 +75,7 @@ def generate_search_terms(query):
 
     return list(search_terms)
 
-def search_products(products, queries):
+def search_products(products, queries, max_results=10):
     results = []
     seen_product_ids = set()  # To keep track of added product IDs
     
@@ -99,6 +99,9 @@ def search_products(products, queries):
             ):
                 results.append(product)
                 seen_product_ids.add(product['id'])  # Mark this product as added
+                
+            if len(results) >= max_results:
+                return results  # Stop if max results are found
     
     return results
 
@@ -152,23 +155,23 @@ def search():
     if 'error' in products:
         return jsonify({"error": products['error']}), 500
     
+    translated_query = detect_and_translate(query)
+    corrected_translated_query = correct_query(translated_query)
+    
+    search_terms = [query, translated_query, corrected_translated_query]
+    search_results = search_products(products, search_terms)
+    
     # Pagination
     page_size = 10
     start_index = (page - 1) * page_size
     end_index = start_index + page_size
     
-    if start_index >= len(products):
+    paginated_products = search_results[start_index:end_index]
+    
+    if not paginated_products:
         return jsonify({"error": "No results found"}), 404
     
-    paginated_products = products[start_index:end_index]
-    
-    translated_query = detect_and_translate(query)
-    corrected_translated_query = correct_query(translated_query)
-    
-    search_terms = [query, translated_query, corrected_translated_query]
-    search_results = search_products(paginated_products, search_terms)
-    
-    return jsonify(search_results)
+    return jsonify(paginated_products)
 
 if __name__ == "__main__":
     app.run(debug=True)
