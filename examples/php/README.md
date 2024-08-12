@@ -28,7 +28,7 @@ This is a PHP example setup for the Advanced E-commerce Search tool. It demonstr
 
 ## Note
 
-When using this PHP example, make sure to update the main.py configuration for your Python application to match the PHP server URLs. Specifically, change the following URLs:
+When using this PHP example, make sure to update the `main.py` configuration for your Python application to match the PHP server URLs. Specifically, change the following URLs:
 
 ```python
 products_url = 'http://localhost/path/to/your/project/?api=products'
