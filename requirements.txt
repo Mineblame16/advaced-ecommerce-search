@@ -1,0 +1,6 @@
+Flask
+requests
+nltk
+langdetect
+deep-translator
+textblob
