@@ -1,7 +1,3 @@
-Here’s the `README.md` for the Node.js example:
-
----
-
 # Advanced E-commerce Search - Node.js Example
 
 ## Description
