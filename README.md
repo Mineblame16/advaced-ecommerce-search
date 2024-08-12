@@ -26,7 +26,6 @@ The tool is designed to integrate seamlessly with various backend systems. Below
 Ensure you have the following installed:
 
 - [Python 3+](https://www.python.org/downloads/)
-- [Flask](https://flask.palletsprojects.com/)
 - [MySQL](https://www.mysql.com/) or any other database you are using
 - [Node.js](https://nodejs.org/) or PHP (if integrating with a backend)
 
